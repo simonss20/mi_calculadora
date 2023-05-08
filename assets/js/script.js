@@ -33,8 +33,10 @@ function borrarTodo() {
 function operar(operador) {
 
     if (primerValor == 0) {
-        
-       operacion = operador;
+        if (pantalla.value == "") {
+            pantalla.value = 0;
+        }
+        operacion = operador;
         primerValor = parseFloat(pantalla.value);
 
     } else {
