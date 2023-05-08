@@ -1,8 +1,8 @@
-var pantalla = document.querySelector(".pantalla");
-var primerValor = 0;
-var segundoValor = 0;
-var aux = 0;
-var operacion = "";
+const pantalla = document.querySelector(".pantalla");
+let primerValor = 0;
+let segundoValor = 0;
+let aux = 0;
+let operacion = "";
 
 function ingresarNumero(boton) {
 
@@ -20,10 +20,6 @@ function borrar() {
     if (isNaN(pantalla.value)) {
         pantalla.value = "";
     }
-    primerValor = 0;
-    segundoValor = 0;
-    aux = 0;
-    operacion = "";
 }
 
 function borrarTodo() {
@@ -38,107 +34,91 @@ function operar(operador) {
 
     if (primerValor == 0) {
         
-        switch (operador) {
-            case "+":
-                operacion = "+";
-                primerValor = pantalla.value;
-                break;
-            case "-":
-                operacion = "-";
-                primerValor = pantalla.value;
-                break;
-            case "/":
-                operacion = "÷";
-                primerValor = pantalla.value;
-                break;
-            case "x":
-                operacion = "x";
-                primerValor = pantalla.value;
-                break;
-            case "%":
-                operacion = "%";
-                primerValor = pantalla.value;
-                break;
-        }
+       operacion = operador;
+        primerValor = parseFloat(pantalla.value);
 
-        primerValor = parseFloat(primerValor);
     } else {
 
-        primerValor = parseFloat(primerValor);
+        segundoValor = parseFloat(pantalla.value);
 
-        switch (operador) {
+        switch (operacion) {
             case "+":
                 operacion = "+";
-                primerValor += parseFloat(pantalla.value);
+                primerValor += segundoValor;
                 break;
             case "-":
                 operacion = "-";
-                primerValor -= parseFloat(pantalla.value);
+                primerValor -= segundoValor;
                 break;
             case "/":
                 operacion = "÷";
-                primerValor /= parseFloat(pantalla.value);
+                primerValor /= segundoValor;
                 break;
             case "x":
                 operacion = "x";
-                primerValor *= parseFloat(pantalla.value);
+                primerValor *= segundoValor;
                 break;
             default:
                 break;
         } 
+        operacion = operador;
+        pantalla.value = primerValor;
     }
     
-
     pantalla.value = "";
 }
 
 function calcular() {
 
     segundoValor = pantalla.value;
-    primerValor = parseFloat(primerValor);
     segundoValor = parseFloat(segundoValor);
     
-    if (aux == 0) {
-        
-        aux = pantalla.value;
-        aux = parseFloat(aux);
+
+    if (aux > 0) {
         switch (operacion) {
             case "+":
-                pantalla.value = primerValor + segundoValor;
+                primerValor = primerValor + aux;
                 break;
             case "-":
-                pantalla.value = primerValor - segundoValor;
+                primerValor = primerValor - aux;
                 break;  
             case "÷":
-                pantalla.value = primerValor / segundoValor;
+                primerValor = primerValor / aux;
                 break;
             case "x":
-                pantalla.value = primerValor * segundoValor;
+                primerValor = primerValor * aux;
                 break;
             case "%":
-                pantalla.value = (primerValor * segundoValor) / 100;
+                primerValor = (primerValor * aux) / 100;
+                break;
+            default:
+                primerValor = segundoValor;
                 break;
         }
-                            
     } else {
         switch (operacion) {
             case "+":
-                pantalla.value = primerValor + aux;
+                primerValor = primerValor + segundoValor;
                 break;
             case "-":
-                pantalla.value = primerValor - aux;
-                break;
+                primerValor = primerValor - segundoValor;
+                break;  
             case "÷":
-                pantalla.value = primerValor / aux;
+                primerValor = primerValor / segundoValor;
                 break;
             case "x":
-                pantalla.value = primerValor * aux;
+                primerValor = primerValor * segundoValor;
                 break;
             case "%":
-                pantalla.value = (primerValor * segundoValor) / 100;
+                primerValor = (primerValor * segundoValor) / 100;
+                break;
+            default:
+                primerValor = segundoValor;
                 break;
         }
+        aux = segundoValor;
     }
-    primerValor = pantalla.value;
+
+    pantalla.value = primerValor;
 }
                         
