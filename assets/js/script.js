@@ -4,8 +4,6 @@ var segundoValor = 0;
 var aux = 0;
 var operacion = "";
 
-let calculadora = document.querySelector(".calculadora");
-
 function ingresarNumero(boton) {
 
     if (pantalla.value.length < 20) {
@@ -13,6 +11,7 @@ function ingresarNumero(boton) {
         pantalla.value += boton;
     }
     aux = 0;
+    pantalla.value = parseFloat(pantalla.value);
 }
 
 function borrar() {
@@ -21,6 +20,10 @@ function borrar() {
     if (isNaN(pantalla.value)) {
         pantalla.value = "";
     }
+    primerValor = 0;
+    segundoValor = 0;
+    aux = 0;
+    operacion = "";
 }
 
 function borrarTodo() {
@@ -32,29 +35,59 @@ function borrarTodo() {
 }
 
 function operar(operador) {
-    
-    switch (operador) {
-        case "+":
-            operacion = "+";
-            primerValor = pantalla.value;
-            break;
-        case "-":
-            operacion = "-";
-            primerValor = pantalla.value;
-            break;
-        case "/":
-            operacion = "÷";
-            primerValor = pantalla.value;
-            break;
-        case "x":
-            operacion = "x";
-            primerValor = pantalla.value;
-            break;
-        case "%":
-            operacion = "%";
-            primerValor = pantalla.value;
-            break;
+
+    if (primerValor == 0) {
+        
+        switch (operador) {
+            case "+":
+                operacion = "+";
+                primerValor = pantalla.value;
+                break;
+            case "-":
+                operacion = "-";
+                primerValor = pantalla.value;
+                break;
+            case "/":
+                operacion = "÷";
+                primerValor = pantalla.value;
+                break;
+            case "x":
+                operacion = "x";
+                primerValor = pantalla.value;
+                break;
+            case "%":
+                operacion = "%";
+                primerValor = pantalla.value;
+                break;
+        }
+
+        primerValor = parseFloat(primerValor);
+    } else {
+
+        primerValor = parseFloat(primerValor);
+
+        switch (operador) {
+            case "+":
+                operacion = "+";
+                primerValor += parseFloat(pantalla.value);
+                break;
+            case "-":
+                operacion = "-";
+                primerValor -= parseFloat(pantalla.value);
+                break;
+            case "/":
+                operacion = "÷";
+                primerValor /= parseFloat(pantalla.value);
+                break;
+            case "x":
+                operacion = "x";
+                primerValor *= parseFloat(pantalla.value);
+                break;
+            default:
+                break;
+        } 
     }
+    
 
     pantalla.value = "";
 }

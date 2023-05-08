@@ -9,25 +9,22 @@
 }
 
 body {
-    display: grid;
-    grid-template-rows: 1fr;
+    display: flex;
     min-height: 100vh;
-    width: 100%;
-    padding: 1em;
-    box-sizing: border-box;
-    background-image: url(/assets/media/fondo-madera.jpg);
+    background: linear-gradient(#582f0e, #7f4f24, #936639);
 }
 
 .calculadora {
+    box-sizing: border-box;
     min-width: 768px;
-    margin: 2.5em auto;
+    margin: 10px auto;
+    padding: 20px;
     background-color: #343a40;
-    padding: 2.5em;
-    border-radius: 1.25em;
+    border-radius: 20px;
+    justify-content: center;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(5, auto);
-    grid-template-rows: repeat(5, auto);
+    grid-auto-columns: 1fr;
     grid-template-areas: "pantalla pantalla pantalla pantalla pantalla"
                         "siete ocho nueve dividir borrar"
                         "cuatro cinco seis multiplicar porcentaje"
@@ -38,7 +35,7 @@ body {
 .calculadora div, .calculadora button {
     border: 1px solid #fff;
     background-color: #fff;
-    border-radius: 1.25em;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,14 +52,13 @@ body {
 
 .div_pantalla {
     grid-area: pantalla;
-
+    padding: 10px;
 }
 
 .div_pantalla textarea {
     font-family: "calculator";
-    margin: 20px;
     flex-grow: 1;
-    font-size: 64px;
+    font-size: 2em;
     border: none;
     outline: none;
     resize: none;
@@ -135,19 +131,31 @@ body {
 }
 
 @media screen and (max-width: 1024px){
-    body {
-        background-image: rotate;
-    }
-
     .calculadora {
+        min-width: 768px;
+        max-width: 1024px;
+        grid-template-areas: "pantalla pantalla pantalla"
+        "borrar dividir multiplicar "
+        "porcentaje sumar restar"
+        "siete ocho nueve"
+        "cuatro cinco seis"
+        "uno dos tres"
+        "cero punto del"
+        "igual igual igual";
+    }
+}
 
-        grid-template-columns: repeat(4, auto-fit);
-        grid-template-rows: repeat(6, auto-fit);
-        grid-template-areas: "pantalla pantalla pantalla pantalla"
-                             "borrar porcentaje dividir multiplicar"
-                             "siete ocho nueve restar"
-                             "cuatro cinco seis sumar"
-                             "uno dos tres sumar"
-                             "cero punto del igual";
+@media screen and (max-width: 480px){
+    .calculadora {
+        min-width: 320px;
+        max-width: 480px;
+        grid-template-areas: "pantalla pantalla pantalla"
+        "borrar dividir multiplicar "
+        "porcentaje sumar restar"
+        "siete ocho nueve"
+        "cuatro cinco seis"
+        "uno dos tres"
+        "cero punto del"
+        "igual igual igual";
     }
-    }
+}
