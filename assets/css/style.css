@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "calculator";
+    src: url("/assets/fonts/Calculator.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    background-image: url(/assets/media/fondo-madera.jpg);
+}
+
+.calculadora {
+    min-width: 768px;
+    margin: 2.5em auto;
+    background-color: #343a40;
+    padding: 2.5em;
+    border-radius: 1.25em;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: "pantalla pantalla pantalla pantalla pantalla"
+                        "siete ocho nueve dividir borrar"
+                        "cuatro cinco seis multiplicar porcentaje"
+                        "uno dos tres sumar igual"
+                        "cero punto del restar igual";
+}
+
+.calculadora div, .calculadora button {
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    user-select: none;
+}
+
+.calculadora button:active {
+    border: 1px solid #000;
+    transform: scaleX(0.95);
+}
+
+.div_pantalla {
+    grid-area: pantalla;
+
+}
+
+.div_pantalla textarea {
+    font-family: "calculator";
+    margin: 20px;
+    flex-grow: 1;
+    font-size: 64px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.calculadora #btn-0{
+    grid-area: cero;
+}
+.calculadora #btn-1{
+    grid-area: uno;
+}
+.calculadora #btn-2{
+    grid-area: dos;
+}
+.calculadora #btn-3{
+    grid-area: tres;
+}
+.calculadora #btn-4{
+    grid-area: cuatro;
+}
+.calculadora #btn-5{
+    grid-area: cinco;
+}
+.calculadora #btn-6{
+    grid-area: seis;
+}
+.calculadora #btn-7{
+    grid-area: siete;
+}
+.calculadora #btn-8{
+    grid-area: ocho;
+}
+.calculadora #btn-9{
+    grid-area: nueve;
+}
+.calculadora #btn-ac{
+    grid-area: borrar;
+    background-color: #fb8500;
+}
+.calculadora #btn-del{
+    grid-area: del;
+    background-color: pink;
+}
+.calculadora #btn-porc{
+    grid-area: porcentaje;
+    background-color: #adb5bd;
+}
+.calculadora #btn-dividir{
+    grid-area: dividir;
+    background-color: #adb5bd;
+}
+.calculadora #btn-multiplicar{
+    grid-area: multiplicar;
+    background-color: #adb5bd;
+}
+.calculadora #btn-restar{
+    grid-area: restar;
+    background-color: #adb5bd;
+}
+#btn-sumar{
+    grid-area: sumar;
+    background-color: #adb5bd;
+}
+.calculadora #btn-punto{
+    grid-area: punto;
+}
+.calculadora #btn-igual{
+    grid-area: igual;
+    background-color: #0077b6;
+}
+
+@media screen and (max-width: 1024px){
+    body {
+        background-image: rotate;
+    }
+
+    .calculadora {
+
+        grid-template-columns: repeat(4, auto-fit);
+        grid-template-rows: repeat(6, auto-fit);
+        grid-template-areas: "pantalla pantalla pantalla pantalla"
+                             "borrar porcentaje dividir multiplicar"
+                             "siete ocho nueve restar"
+                             "cuatro cinco seis sumar"
+                             "uno dos tres sumar"
+                             "cero punto del igual";
+    }
+    }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="calculadora">
+        <div class="div_pantalla">
+            <textarea cols="10" rows="2" maxlength="20" class="pantalla" readonly></textarea>
+        </div>
+        <button id="btn-0" value="0" onclick="ingresarNumero(document.querySelector('#btn-0').value)">0</button>
+        <button id="btn-1" value="1" onclick="ingresarNumero(document.querySelector('#btn-1').value)">1</button>
+        <button id="btn-2" value="2" onclick="ingresarNumero(document.querySelector('#btn-2').value)">2</button>
+        <button id="btn-3" value="3" onclick="ingresarNumero(document.querySelector('#btn-3').value)">3</button>
+        <button id="btn-4" value="4" onclick="ingresarNumero(document.querySelector('#btn-4').value)">4</button>
+        <button id="btn-5" value="5" onclick="ingresarNumero(document.querySelector('#btn-5').value)">5</button>
+        <button id="btn-6" value="6" onclick="ingresarNumero(document.querySelector('#btn-6').value)">6</button>
+        <button id="btn-7" value="7" onclick="ingresarNumero(document.querySelector('#btn-7').value)">7</button>
+        <button id="btn-8" value="8" onclick="ingresarNumero(document.querySelector('#btn-8').value)">8</button>
+        <button id="btn-9" value="9" onclick="ingresarNumero(document.querySelector('#btn-9').value)">9</button>
+        <button id="btn-punto" value="." onclick="ingresarNumero(document.querySelector('#btn-punto').value)">.</button>
+        <button id="btn-ac" onclick="borrarTodo()">AC</button>
+        <button id="btn-del" onclick="borrar()">DEL</button>
+        <button id="btn-porc" value="%" onclick="operar(document.querySelector('#btn-porc').value)">%</button>
+        <button id="btn-dividir" value="/" onclick="operar(document.querySelector('#btn-dividir').value)">&divide</button>
+        <button id="btn-multiplicar" value="x" onclick="operar(document.querySelector('#btn-multiplicar').value)">&times</button>
+        <button id="btn-restar" value="-" onclick="operar(document.querySelector('#btn-restar').value)">-</button>
+        <button id="btn-sumar" value="+" onclick="operar(document.querySelector('#btn-sumar').value)">+</button>
+        <button id="btn-igual" onclick="calcular()">=</button>
+    </div>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
