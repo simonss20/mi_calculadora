@@ -11,7 +11,6 @@ function ingresarNumero(boton) {
         pantalla.value += boton;
     }
     aux = 0;
-    pantalla.value = parseFloat(pantalla.value);
 }
 
 function borrar() {
