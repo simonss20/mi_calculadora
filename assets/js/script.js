@@ -53,7 +53,7 @@ function operar(operador) {
                 primerValor -= segundoValor;
                 break;
             case "/":
-                operacion = "÷";
+                operacion = "/";
                 primerValor /= segundoValor;
                 break;
             case "x":
