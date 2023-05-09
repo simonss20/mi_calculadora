@@ -11,7 +11,6 @@ function ingresarNumero(boton) {
         pantalla.value += boton;
     }
     aux = 0;
-    pantalla.value = parseFloat(pantalla.value);
 }
 
 function borrar() {
@@ -53,7 +52,7 @@ function operar(operador) {
                 primerValor -= segundoValor;
                 break;
             case "/":
-                operacion = "÷";
+                operacion = "/";
                 primerValor /= segundoValor;
                 break;
             case "x":
@@ -84,7 +83,7 @@ function calcular() {
             case "-":
                 primerValor = primerValor - aux;
                 break;  
-            case "÷":
+            case "/":
                 primerValor = primerValor / aux;
                 break;
             case "x":
@@ -105,7 +104,7 @@ function calcular() {
             case "-":
                 primerValor = primerValor - segundoValor;
                 break;  
-            case "÷":
+            case "/":
                 primerValor = primerValor / segundoValor;
                 break;
             case "x":
